@@ -19,7 +19,8 @@
       "@components*": ["src/components*"],
       "@interfaces*": ["src/interfaces*"],
       "@utils*": ["src/utils*"],
-      "@assets*": ["src/assets*"]
+      "@assets*": ["src/assets*"],
+      "@state*": ["src/state*"]
     }
   },
   "include": ["./src"]
