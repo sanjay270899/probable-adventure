@@ -1,6 +1,10 @@
 import React from 'react'
 
+import useAuth from './hooks/useAuth'
+
 function App() {
+  useAuth()
+
   return (
     <div className="h-screen w-screen flex items-center justify-center">
       <div className="mx-2">

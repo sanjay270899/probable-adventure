@@ -9,8 +9,10 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@twind/forms": "^0.1.4",
+    "axios": "^0.21.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-query": "^3.19.6",
     "react-redux": "^7.2.4",
     "redux": "^4.1.1",
     "twind": "^0.16.16"
