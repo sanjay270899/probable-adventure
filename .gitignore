@@ -32,3 +32,6 @@ pnpm-error.log*
 dist
 dist-ssr
 *.local
+
+# storybook
+/storybook-static
