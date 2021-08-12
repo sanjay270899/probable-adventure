@@ -8,7 +8,7 @@ const useAuth = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    if (isError) {
+    if (isError || !user) {
       dispatch(logout())
     } else {
       dispatch(login(user))

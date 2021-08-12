@@ -1,4 +1,6 @@
-export type User = {}
+export type User = {
+  authorization: string
+}
 
 export type LoginState = {
   isLoggedIn: boolean
