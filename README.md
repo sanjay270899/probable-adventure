@@ -18,6 +18,8 @@ pnpm dev
 
 This will start the project at http://localhost:3000/
 
+4. Look at `sample.env` and create a `.env.local` file with correct environment variables
+
 ## Recommended VS Code plugins
 
 - [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)

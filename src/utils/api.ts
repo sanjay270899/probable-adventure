@@ -1,8 +1,8 @@
 import logger from '../utils/logger'
 
 export const API_BASE_URL = import.meta.env.VITE_API_URL
-export const CLIENT_ID = import.meta.env.REACT_APP_DISCORD_CLIENT_ID
-logger('api', `using api base url:`, API_BASE_URL)
+export const CLIENT_ID = import.meta.env.VITE_DISCORD_CLIENT_ID
+logger('api', `base url:`, API_BASE_URL)
 
 const discordRedirectUri = window.origin
 
