@@ -1,19 +1,21 @@
 import { useEffect } from 'react'
 
 import { useUser } from '@services/auth'
-import { login, logout, useAppDispatch } from '@state/index'
+import { logout, updateUser, useAppDispatch } from '@state/index'
+import logger from '@utils/logger'
 
 const useAuth = () => {
-  const { data: user, isError } = useUser()
+  const { data: user } = useUser()
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    if (isError || !user) {
+    logger('useAuth', { user })
+    if (!user) {
       dispatch(logout())
     } else {
-      dispatch(login(user))
+      dispatch(updateUser(user))
     }
-  }, [dispatch, isError, user])
+  }, [dispatch, user])
 }
 
 export default useAuth

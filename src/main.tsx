@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Toaster } from 'react-hot-toast'
 import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
@@ -19,6 +20,7 @@ ReactDOM.render(
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <App />
+          <Toaster position="top-right" />
           {!import.meta.env.PROD && (
             <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
           )}
