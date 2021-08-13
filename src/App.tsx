@@ -14,12 +14,14 @@ const App = () => {
     <div className="min-h-screen w-screen flex flex-col">
       <Navbar />
 
-      <div className="flex-1">
-        <Switch>
-          <Route exact path="/" component={Index} />
+      <div className="flex-1 flex flex-col">
+        <div className="flex-1">
+          <Switch>
+            <Route exact path="/" component={Index} />
 
-          <Route path="/" component={NotFound} />
-        </Switch>
+            <Route path="/" component={NotFound} />
+          </Switch>
+        </div>
 
         <Footer />
       </div>
