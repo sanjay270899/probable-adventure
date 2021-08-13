@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
-import { store } from '../state'
-import logger from '../utils/logger'
+import { store } from '@state/index'
+import logger from '@utils/logger'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL
 

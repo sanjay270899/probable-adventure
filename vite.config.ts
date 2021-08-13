@@ -1,19 +1,7 @@
 import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react-refresh'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  plugins: [reactRefresh()],
-  resolve: {
-    alias: {
-      '@assets': './assets',
-      '@components': './components',
-      '@config': './config',
-      '@hooks': './hooks',
-      '@interfaces': './interfaces',
-      '@pages': './pages',
-      '@services': './services',
-      '@state': './state',
-      '@utils': './utils'
-    }
-  }
+  plugins: [reactRefresh(), tsconfigPaths()]
 })

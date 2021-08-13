@@ -5,6 +5,7 @@ import Footer from '@components/layout/Footer'
 import Navbar from '@components/layout/Navbar'
 import useAuth from '@hooks/useAuth'
 import Index from '@pages/Index'
+import Login from '@pages/Login'
 import NotFound from '@pages/NotFound'
 
 const App = () => {
@@ -15,9 +16,10 @@ const App = () => {
       <Navbar />
 
       <div className="flex-1 flex flex-col">
-        <div className="flex-1">
+        <div className="flex-1 flex">
           <Switch>
             <Route exact path="/" component={Index} />
+            <Route exact path="/login" component={Login} />
 
             <Route path="/" component={NotFound} />
           </Switch>

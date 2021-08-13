@@ -5,12 +5,13 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
-import 'twind/shim'
-import './utils/twindConfig'
+import { queryClient } from '@config/query.config'
+import { store } from '@state/index'
 
-import { queryClient } from './config/query.config'
+import 'twind/shim'
+import '@utils/twindConfig'
+
 import App from './App'
-import { store } from './state'
 
 ReactDOM.render(
   <React.StrictMode>
