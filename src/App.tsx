@@ -1,17 +1,27 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
 
-import useAuth from './hooks/useAuth'
+import Footer from '@components/layout/Footer'
+import Navbar from '@components/layout/Navbar'
+import useAuth from '@hooks/useAuth'
+import Index from '@pages/Index'
+import NotFound from '@pages/NotFound'
 
-function App() {
+const App = () => {
   useAuth()
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center">
-      <div className="mx-2">
-        <p className="text-3xl text-center">Hello Vite + React!</p>
-        <p className="py-2">
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
+    <div className="min-h-screen w-screen flex flex-col">
+      <Navbar />
+
+      <div className="flex-1">
+        <Switch>
+          <Route exact path="/" component={Index} />
+
+          <Route path="/" component={NotFound} />
+        </Switch>
+
+        <Footer />
       </div>
     </div>
   )
