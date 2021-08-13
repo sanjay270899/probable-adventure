@@ -5,15 +5,15 @@ export default defineConfig({
   plugins: [reactRefresh()],
   resolve: {
     alias: {
-      '@assets': './src/assets',
-      '@components': './src/components',
-      '@config': './src/config',
-      '@hooks': './src/hooks',
-      '@interfaces': './src/interfaces',
-      '@pages': './src/pages',
-      '@services': './src/services',
-      '@state': './src/state',
-      '@utils': './src/utils'
+      '@assets': './assets',
+      '@components': './components',
+      '@config': './config',
+      '@hooks': './hooks',
+      '@interfaces': './interfaces',
+      '@pages': './pages',
+      '@services': './services',
+      '@state': './state',
+      '@utils': './utils'
     }
   }
 })
