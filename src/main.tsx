@@ -1,25 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 
 import 'twind/shim'
 import './utils/twindConfig'
 
+import { queryClient } from './config/query.config'
 import App from './App'
 import { store } from './state'
-
-const queryClient = new QueryClient()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <App />
-        {!import.meta.env.PROD && (
-          <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
-        )}
+        <BrowserRouter>
+          <App />
+          {!import.meta.env.PROD && (
+            <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
+          )}
+        </BrowserRouter>
       </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
