@@ -46,3 +46,11 @@ export const colors = {
 export const fontFamily = {
   'ibm-sans': ['IBM Plex Sans', 'sans-serif']
 }
+
+export const outline = {
+  primary: ['2px solid #8080FF', '2px'],
+  secondary: ['2px solid #6E6B80', '2px'],
+  danger: ['2px solid #FF3833', '2px'],
+  warning: ['2px solid #F99406', '2px'],
+  success: ['2px solid #45B82E', '2px']
+}
