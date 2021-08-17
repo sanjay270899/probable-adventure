@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build-storybook && tsc && vite build",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -c .storybook -p 6006",
+    "build-storybook": "build-storybook -c .storybook -o public/storybook"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.3",
