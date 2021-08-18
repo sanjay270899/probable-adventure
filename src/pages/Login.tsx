@@ -5,12 +5,16 @@ import GoogleLogin, {
   GoogleLoginResponseOffline
 } from 'react-google-login'
 import toast from 'react-hot-toast'
+import { Redirect } from 'react-router-dom'
 
 import { GoogleIcon } from '@assets/icons/Social'
-import { LoginParams, useLoginMutation } from '@services/auth'
-import logger from '@utils/logger'
+import { LoginParams } from '@interfaces/index'
+import { useLoginMutation } from '@services/index'
+import { useLoginState } from '@state/index'
+import { logger } from '@utils/index'
 
 const Login = () => {
+  const { user } = useLoginState()
   const { mutateAsync: loginMutation, isLoading } = useLoginMutation()
 
   const onGoogleLogin = useCallback(
@@ -35,13 +39,17 @@ const Login = () => {
     [loginMutation]
   )
 
+  if (user) {
+    return <Redirect to="/profile" />
+  }
+
   return (
-    <div className="bg-white flex flex-1">
+    <div className="flex flex-1 min-h-screen">
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <img className="h-12 w-auto" src="/favicon.png" alt="Devsnest" />
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+            <h2 className="mt-6 text-3xl font-extrabold text-white">
               Sign in to your account
             </h2>
           </div>
@@ -55,7 +63,7 @@ const Login = () => {
                 <button
                   onClick={props.onClick}
                   disabled={props.disabled || isLoading}
-                  className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                  className="w-full flex justify-center items-center py-2 px-4 border border-gray-700 rounded-md shadow-sm bg-white text-sm font-medium text-white bg-gray-700 hover:border-gray-500">
                   <GoogleIcon className="h-6 w-6" />
                   <span className="ml-3">Continue with Google</span>
                 </button>

@@ -5,15 +5,20 @@ import { useAppSelector } from '@state/index'
 const initialState: LoginState = {
   isLoggedIn: false,
   user: null,
-  isLoading: false
+  isLoading: false,
+  authorization: null
 }
 
 const loginSlice = createSlice({
   name: 'loginSlice',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<User>) => {
-      state.user = action.payload
+    login: (
+      state,
+      action: PayloadAction<{ user: User; authorization: string }>
+    ) => {
+      state.user = action.payload.user
+      state.authorization = action.payload.authorization
       state.isLoggedIn = true
     },
     logout: (state) => {
