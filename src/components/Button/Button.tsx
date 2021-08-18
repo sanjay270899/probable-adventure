@@ -33,19 +33,9 @@ export type ButtonStyleProps = Parameters<typeof buttonStyle>[0]
 export type HTMLButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
-> &
-  ButtonStyleProps
+>
 
-export interface ButtonProps extends HTMLButtonProps {
-  /**
-   * Custom class
-   */
-  className?: string
-  /**
-   * Text inside button
-   */
-  children?: React.ReactText
-}
+export type ButtonProps = HTMLButtonProps & ButtonStyleProps
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props: ButtonProps, ref) => {
