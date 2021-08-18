@@ -15,7 +15,7 @@ const axios = Axios.create({
 axios.interceptors.request.use(
   (config) => {
     const request = config
-    const authorization = store.getState().login.user?.authorization
+    const authorization = store.getState().login?.authorization
     if (authorization) {
       request.headers.Authorization = authorization
     }
