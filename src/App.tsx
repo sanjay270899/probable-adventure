@@ -7,6 +7,13 @@ import useAuth from '@hooks/useAuth'
 import Index from '@pages/Index'
 import Login from '@pages/Login'
 import NotFound from '@pages/NotFound'
+import * as Sentry from '@sentry/react'
+
+if (import.meta.env.VITE_SENTRY_URL) {
+  Sentry.init({
+    dsn: import.meta.env.VITE_SENTRY_URL
+  })
+}
 
 const App = () => {
   useAuth()
@@ -16,7 +23,7 @@ const App = () => {
       <Navbar />
 
       <div className="flex-1 flex flex-col">
-        <div className="flex-1 flex">
+        <div className="flex-1 flex flex-col">
           <Switch>
             <Route exact path="/" component={Index} />
             <Route exact path="/login" component={Login} />
