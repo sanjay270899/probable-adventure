@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-import { useUser } from '@services/auth'
+import { useUserQuery } from '@services/auth'
 import { logout, updateUser, useAppDispatch } from '@state/index'
 import logger from '@utils/logger'
 
 const useAuth = () => {
-  const { data: user } = useUser()
+  const { data: user } = useUserQuery()
   const dispatch = useAppDispatch()
 
   useEffect(() => {
