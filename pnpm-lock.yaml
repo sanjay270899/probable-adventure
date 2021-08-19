@@ -5,11 +5,13 @@ specifiers:
   '@heroicons/react': ^1.0.3
   '@reduxjs/toolkit': ^1.6.1
   '@sentry/react': ^6.11.0
+  '@sentry/tracing': ^6.11.0
   '@storybook/addon-actions': ^6.3.7
   '@storybook/addon-essentials': ^6.3.7
   '@storybook/addon-links': ^6.3.7
   '@storybook/react': ^6.3.7
   '@twind/forms': ^0.1.4
+  '@types/mixpanel-browser': ^2.35.7
   '@types/react': ^17.0.18
   '@types/react-dom': ^17.0.9
   '@types/react-router-dom': ^5.1.8
@@ -36,6 +38,7 @@ specifiers:
   eslint-plugin-simple-import-sort: ^7.0.0
   eslint-plugin-standard: ^5.0.0
   husky: ^6.0.0
+  mixpanel-browser: ^2.41.0
   prettier: ^2.3.2
   prettier-config-standard: ^4.0.0
   react: ^17.0.2
@@ -55,10 +58,13 @@ dependencies:
   '@heroicons/react': 1.0.3_react@17.0.2
   '@reduxjs/toolkit': 1.6.1_react-redux@7.2.4+react@17.0.2
   '@sentry/react': 6.11.0_react@17.0.2
+  '@sentry/tracing': 6.11.0
   '@twind/forms': 0.1.4_twind@0.16.16+typescript@4.3.5
+  '@types/mixpanel-browser': 2.35.7
   '@types/react-router-dom': 5.1.8
   axios: 0.21.1
   classnames: 2.3.1
+  mixpanel-browser: 2.41.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-google-login: 5.2.2_react-dom@17.0.2+react@17.0.2
@@ -1980,6 +1986,17 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /@sentry/tracing/6.11.0:
+    resolution: {integrity: sha512-9VA1/SY++WeoMQI4K6n/sYgIdRtCu9NLWqmGqu/5kbOtESYFgAt1DqSyqGCr00ZjQiC2s7tkDkTNZb38K6KytQ==}
+    engines: {node: '>=6'}
+    dependencies:
+      '@sentry/hub': 6.11.0
+      '@sentry/minimal': 6.11.0
+      '@sentry/types': 6.11.0
+      '@sentry/utils': 6.11.0
+      tslib: 1.14.1
+    dev: false
+
   /@sentry/types/6.11.0:
     resolution: {integrity: sha512-gm5H9eZhL6bsIy/h3T+/Fzzz2vINhHhqd92CjHle3w7uXdTdFV98i2pDpErBGNTSNzbntqOMifYEB5ENtZAvcg==}
     engines: {node: '>=6'}
@@ -3231,6 +3248,10 @@ packages:
   /@types/minimatch/3.0.5:
     resolution: {integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==}
     dev: true
+
+  /@types/mixpanel-browser/2.35.7:
+    resolution: {integrity: sha512-cisiRR1Fky5X1g9Z7tKliR8fB6V6TJ+7oa7Xca2AcYhtpOR8Otp4/pMdd9tLFPKqOLTWiD2S4gfN2zHFv7Z7KA==}
+    dev: false
 
   /@types/node-fetch/2.5.12:
     resolution: {integrity: sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==}
@@ -8236,6 +8257,10 @@ packages:
       for-in: 1.0.2
       is-extendable: 1.0.1
     dev: true
+
+  /mixpanel-browser/2.41.0:
+    resolution: {integrity: sha512-IEuc9cH44hba9a3KEyulXINLn+gpFqluBDo7xiTk1h3j111dmmsctaE6tUzZYxgGLVqeNhTpsccdliOeX24Wlw==}
+    dev: false
 
   /mkdirp/0.5.5:
     resolution: {integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==}
