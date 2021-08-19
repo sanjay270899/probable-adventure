@@ -10,6 +10,7 @@ specifiers:
   '@storybook/addon-essentials': ^6.3.7
   '@storybook/addon-links': ^6.3.7
   '@storybook/react': ^6.3.7
+  '@storybook/theming': ^6.3.7
   '@twind/forms': ^0.1.4
   '@types/mixpanel-browser': ^2.35.7
   '@types/react': ^17.0.18
@@ -78,9 +79,10 @@ dependencies:
 devDependencies:
   '@babel/core': 7.15.0
   '@storybook/addon-actions': 6.3.7_aafffb2bfb54f6a4ac6b988db6a316d2
-  '@storybook/addon-essentials': 6.3.7_39022ff87784bba6c6a972c0fb2dd97d
+  '@storybook/addon-essentials': 6.3.7_361c1f5a5d1147a875c6f03054f7ae8c
   '@storybook/addon-links': 6.3.7_react-dom@17.0.2+react@17.0.2
   '@storybook/react': 6.3.7_7cca355e1a9d82c9070e5c294ab44322
+  '@storybook/theming': 6.3.7_react-dom@17.0.2+react@17.0.2
   '@types/react': 17.0.18
   '@types/react-dom': 17.0.9
   '@typescript-eslint/eslint-plugin': 4.29.2_b01b7137116ac50f0745961d9cf72d34
@@ -2195,7 +2197,7 @@ packages:
       - webpack-command
     dev: true
 
-  /@storybook/addon-essentials/6.3.7_39022ff87784bba6c6a972c0fb2dd97d:
+  /@storybook/addon-essentials/6.3.7_361c1f5a5d1147a875c6f03054f7ae8c:
     resolution: {integrity: sha512-ZWAW3qMFrrpfSekmCZibp/ivnohFLJdJweiIA0CLnuCNuuK9kQdpFahWdvyBy5NlCj3UJwB7epTZYZyHqYW7UQ==}
     peerDependencies:
       '@babel/core': ^7.9.6
@@ -2225,7 +2227,7 @@ packages:
       '@storybook/addon-backgrounds': 6.3.7_aafffb2bfb54f6a4ac6b988db6a316d2
       '@storybook/addon-controls': 6.3.7_aafffb2bfb54f6a4ac6b988db6a316d2
       '@storybook/addon-docs': 6.3.7_5404a25bc336387894cc159224a8d4ba
-      '@storybook/addon-measure': 2.0.0_41d5cff43c98cde6f321aed2833c5cca
+      '@storybook/addon-measure': 2.0.0_16feca10db9c75bfe2e613530420bc58
       '@storybook/addon-toolbars': 6.3.7_aafffb2bfb54f6a4ac6b988db6a316d2
       '@storybook/addon-viewport': 6.3.7_aafffb2bfb54f6a4ac6b988db6a316d2
       '@storybook/addons': 6.3.7_react-dom@17.0.2+react@17.0.2
@@ -2284,7 +2286,7 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/addon-measure/2.0.0_41d5cff43c98cde6f321aed2833c5cca:
+  /@storybook/addon-measure/2.0.0_16feca10db9c75bfe2e613530420bc58:
     resolution: {integrity: sha512-ZhdT++cX+L9LwjhGYggvYUUVQH/MGn2rwbrAwCMzA/f2QTFvkjxzX8nDgMxIhaLCDC+gHIxfJG2wrWN0jkBr3g==}
     peerDependencies:
       '@storybook/addons': ^6.3.0
@@ -2302,6 +2304,7 @@ packages:
     dependencies:
       '@storybook/addons': 6.3.7_react-dom@17.0.2+react@17.0.2
       '@storybook/api': 6.3.7_react-dom@17.0.2+react@17.0.2
+      '@storybook/theming': 6.3.7_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
     dev: true
