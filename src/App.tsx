@@ -9,13 +9,6 @@ import Login from '@pages/Login'
 import NotFound from '@pages/NotFound'
 import Profile from '@pages/Profile'
 import User from '@pages/User'
-import * as Sentry from '@sentry/react'
-
-if (import.meta.env.VITE_SENTRY_URL) {
-  Sentry.init({
-    dsn: import.meta.env.VITE_SENTRY_URL
-  })
-}
 
 const App = () => {
   useAuth()
