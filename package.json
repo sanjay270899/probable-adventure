@@ -6,7 +6,13 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "storybook": "start-storybook -c .storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o public/storybook"
+    "build-storybook": "build-storybook -c .storybook -o public/storybook",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "verify": "yarn prettier && yarn lint",
+    "verify:fix": "yarn prettier:fix && yarn lint:fix"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.3",
@@ -64,5 +70,11 @@
     "typescript": "^4.3.5",
     "vite": "^2.5.0",
     "vite-tsconfig-paths": "^3.3.13"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier",
+      "pre-push": "yarn verify"
+    }
   }
 }
