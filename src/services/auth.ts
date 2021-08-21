@@ -2,14 +2,23 @@ import { useMutation, useQuery } from 'react-query'
 
 import axios from '@config/axios.config'
 import { queryClient } from '@config/query.config'
-import { LoginParams } from '@interfaces/services'
+import { LoginParams, UserUpdateParams } from '@interfaces/services'
 import { User } from '@interfaces/state'
-import { login, logout, useAppDispatch } from '@state/index'
+import {
+  login,
+  logout,
+  updateUser,
+  useAppDispatch,
+  useLoginState
+} from '@state/index'
 import { API_ENDPOINTS } from '@utils/api'
 
 export const fetchUser = async () => {
   const response = await axios.get(API_ENDPOINTS.CURRENT_USER)
-  return response.data.data.attributes
+  return {
+    id: parseInt(response.data.data.id),
+    ...response.data.data.attributes
+  }
 }
 
 /**
@@ -20,6 +29,40 @@ export const useUserQuery = () => {
     retry: false,
     refetchOnWindowFocus: false
   })
+}
+
+export const fetchUserUpdate = async (
+  id: undefined | number,
+  newUser: UserUpdateParams
+) => {
+  if (!id) throw new Error('No user id passed')
+
+  const response = await axios.put(`${API_ENDPOINTS.USER}/${id}`, {
+    data: {
+      id: id.toString(),
+      type: 'users',
+      attributes: newUser
+    }
+  })
+  return response.data.data.attributes
+}
+
+/**
+ * Used to get the latest user from server
+ */
+export const useUserMutation = () => {
+  const { user } = useLoginState()
+  const dispatch = useAppDispatch()
+
+  return useMutation(
+    (newUser: UserUpdateParams) => fetchUserUpdate(user?.id, newUser),
+    {
+      onSuccess: (data) => {
+        dispatch(updateUser(data))
+        queryClient.invalidateQueries('auth/user')
+      }
+    }
+  )
 }
 
 export const fetchLogin = async (data: LoginParams) => {
@@ -98,7 +141,6 @@ export const fetchDiscordConnect = async (code: string) => {
  * Used to connect discord of current user using token from bot,
  * updates user query automatically
  */
-
 export const useDiscordConnectMutation = () => {
   return useMutation(fetchDiscordConnect, {
     onSuccess: () => {

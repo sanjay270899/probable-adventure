@@ -174,7 +174,6 @@ const Navbar = () => {
                       key={item.to}
                       to={item.to}
                       onClick={item.onClick}
-                      activeClassName="bg-gray-800 text-white"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                       {item.label}
                     </NavLink>

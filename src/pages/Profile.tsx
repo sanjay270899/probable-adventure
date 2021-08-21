@@ -1,14 +1,20 @@
 import React from 'react'
 
-import { useUserQuery } from '@services/index'
-import { logger } from '@utils/index'
+import { useUserMutation } from '@services/index'
+import { useUser } from '@state/index'
 
 const Profile = () => {
-  const { data: user } = useUserQuery()
+  const user = useUser()
+  const { mutateAsync: updateUser } = useUserMutation()
 
-  logger('profile', user)
-
-  return <></>
+  return (
+    <div>
+      <div>{user.name}</div>
+      <button className="" onClick={() => updateUser({ name: 'test name' })}>
+        Update name
+      </button>
+    </div>
+  )
 }
 
 export default Profile

@@ -14,7 +14,7 @@ const App = () => {
   useAuth()
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gray-800">
+    <div className="min-h-screen w-full flex flex-col bg-gray-800 text-white">
       <Navbar />
 
       <div className="flex-1 flex flex-col">

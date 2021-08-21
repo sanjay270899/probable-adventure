@@ -42,6 +42,13 @@ export const useLoginState = () => {
   return useAppSelector((state) => state.login)
 }
 
+/**
+ * Use in the places where you know that user will always be logged in
+ */
 export const useUser = () => {
-  return useAppSelector((state) => state.login.user)
+  const user = useAppSelector((state) => state.login.user)
+
+  if (!user) throw new Error('No user is logged in')
+
+  return user
 }

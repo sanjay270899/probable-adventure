@@ -1,3 +1,5 @@
+import { User } from '@interfaces/index'
+
 export type LoginParams = {
   type: 'google'
   code: string
@@ -27,3 +29,5 @@ export type DSASubmissionParams = {
 }
 
 export type SubmissionParams = DSASubmissionParams | FrontendSubmissionParams
+
+export type UserUpdateParams = Partial<Omit<User, 'id'>>
