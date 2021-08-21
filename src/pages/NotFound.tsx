@@ -13,7 +13,7 @@ const links = [
   {
     title: 'Join the course',
     href: '/#join',
-    description: 'Join the course and start your journey with us today',
+    description: 'Start your journey in tech with us today',
     icon: AcademicCapIcon
   },
   {

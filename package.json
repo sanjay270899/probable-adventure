@@ -15,6 +15,7 @@
     "verify:fix": "yarn prettier:fix && yarn lint:fix"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
     "@heroicons/react": "^1.0.3",
     "@reduxjs/toolkit": "^1.6.1",
     "@sentry/react": "^6.11.0",

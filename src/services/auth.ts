@@ -4,7 +4,7 @@ import axios from '@config/axios.config'
 import { queryClient } from '@config/query.config'
 import { LoginParams } from '@interfaces/services'
 import { User } from '@interfaces/state'
-import { login, useAppDispatch } from '@state/index'
+import { login, logout, useAppDispatch } from '@state/index'
 import { API_ENDPOINTS } from '@utils/api'
 
 export const fetchUser = async () => {
@@ -39,6 +39,25 @@ export const useLoginMutation = () => {
   return useMutation(fetchLogin, {
     onSuccess: (data) => {
       dispatch(login(data))
+      queryClient.invalidateQueries('auth/user')
+    }
+  })
+}
+
+export const fetchLogout = async () => {
+  const response = await axios.delete(API_ENDPOINTS.LOGOUT)
+  return response.data
+}
+
+/**
+ * Used to log in the user, updates local state and user query automatically
+ */
+export const useLogoutMutation = () => {
+  const dispatch = useAppDispatch()
+
+  return useMutation(fetchLogout, {
+    onSuccess: () => {
+      dispatch(logout())
       queryClient.invalidateQueries('auth/user')
     }
   })

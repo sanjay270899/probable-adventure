@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': ^7.15.0
+  '@headlessui/react': ^1.4.0
   '@heroicons/react': ^1.0.3
   '@reduxjs/toolkit': ^1.6.1
   '@sentry/react': ^6.11.0
@@ -56,6 +57,7 @@ specifiers:
   vite-tsconfig-paths: ^3.3.13
 
 dependencies:
+  '@headlessui/react': 1.4.0_react-dom@17.0.2+react@17.0.2
   '@heroicons/react': 1.0.3_react@17.0.2
   '@reduxjs/toolkit': 1.6.1_react-redux@7.2.4+react@17.0.2
   '@sentry/react': 6.11.0_react@17.0.2
@@ -1678,6 +1680,17 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@headlessui/react/1.4.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-C+FmBVF6YGvqcEI5fa2dfVbEaXr2RGR6Kw1E5HXIISIZEfsrH/yuCgsjWw5nlRF9vbCxmQ/EKs64GAdKeb8gCw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /@heroicons/react/1.0.3_react@17.0.2:
     resolution: {integrity: sha512-wdzWbDiFKzeL6xFJsgY2PqvDkx4hFmQDpEFRVj872EA71XOjr8g0DQj5rHWm0y7LwfGOFL0eQmEiMbTyGNOnTQ==}
