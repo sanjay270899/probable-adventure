@@ -5,6 +5,7 @@ import Footer from '@components/layout/Footer'
 import Navbar from '@components/layout/Navbar'
 import Route from '@components/Route/Route'
 import useAuth from '@hooks/useAuth'
+import Faq from '@pages/Faq'
 import Index from '@pages/Index'
 import Login from '@pages/Login'
 import NotFound from '@pages/NotFound'
@@ -36,6 +37,7 @@ const App = () => {
               loggedInOnly={true}
             />
             <Route exact path="/u/:username" component={User} />
+            <Route exact path="/faq" component={Faq} />
 
             <Route path="/" component={NotFound} />
           </Switch>
