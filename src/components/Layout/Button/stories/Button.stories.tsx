@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import Button from '../../Button'
+import Button from '..'
 
 import { getButtonArgTypes } from './buttonArgTypes'
 

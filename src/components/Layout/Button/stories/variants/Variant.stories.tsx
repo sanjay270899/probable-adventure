@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { ComponentSeparator } from '../../../../storybook/utils/ComponentSeparator'
+import { ComponentSeparator } from '../../../../../storybook/utils/ComponentSeparator'
 import Button from '../../Button'
 import { getButtonArgTypes } from '../buttonArgTypes'
 
@@ -34,6 +34,9 @@ const AllTemplate: ComponentStory<typeof Button> = (args) => {
         Warning
       </Button>
       <Button variant="success" {...args}>
+        Success
+      </Button>
+      <Button variant="transparent" {...args}>
         Success
       </Button>
     </ComponentSeparator>
@@ -72,4 +75,10 @@ export const Success = Template.bind({})
 Success.args = {
   children: 'Success',
   variant: 'success'
+}
+
+export const Transparent = Template.bind({})
+Transparent.args = {
+  children: 'Transparent',
+  variant: 'transparent'
 }

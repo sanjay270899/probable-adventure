@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import { ComponentSeparator } from '../../../../storybook/utils/ComponentSeparator'
+import { ComponentSeparator } from '../../../../../storybook/utils/ComponentSeparator'
 import Button from '../../Button'
 import { getButtonArgTypes } from '../buttonArgTypes'
 
