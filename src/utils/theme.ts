@@ -44,5 +44,12 @@ export const colors = {
 }
 
 export const fontFamily = {
-  'ibm-sans': ['IBM Plex Sans', 'sans-serif']
+  sans: ['IBM Plex Sans', 'sans-serif']
 }
+
+const theme = {
+  colors,
+  fontFamily
+}
+
+export default theme

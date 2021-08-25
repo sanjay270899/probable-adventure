@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch } from 'react-router-dom'
 
-import Footer from '@components/layout/Footer'
-import Navbar from '@components/layout/Navbar'
+import Footer from '@components/Layout/Footer'
+import Navbar from '@components/Layout/Navbar'
 import Route from '@components/Route/Route'
 import useAuth from '@hooks/useAuth'
 import Faq from '@pages/Faq'
@@ -16,7 +16,7 @@ const App = () => {
   useAuth()
 
   return (
-    <div className="min-h-screen w-full flex flex-col bg-gray-800 text-white">
+    <div className="min-h-screen w-full flex flex-col font-sans bg-gray-800 text-white">
       <Navbar />
 
       <div className="flex-1 flex flex-col">
