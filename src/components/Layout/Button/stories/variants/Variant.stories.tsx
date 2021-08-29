@@ -37,7 +37,7 @@ const AllTemplate: ComponentStory<typeof Button> = (args) => {
         Success
       </Button>
       <Button variant="transparent" {...args}>
-        Success
+        Transparent
       </Button>
     </ComponentSeparator>
   )

@@ -83,5 +83,23 @@ export const getButtonArgTypes = (control: string[]) => ({
       defaultValue: { summary: 'undefined' }
     },
     control: false
+  },
+  rounded: {
+    name: 'rounded',
+    type: {
+      type: 'string',
+      required: false
+    },
+    description: 'Roundness of Button',
+    table: {
+      type: { summary: `'default' | 'none' | 'full'` },
+      defaultValue: { summary: `'default'` }
+    },
+    control: control.includes('rounded')
+      ? false
+      : {
+          type: 'radio',
+          options: ['default', 'none', 'full']
+        }
   }
 })
