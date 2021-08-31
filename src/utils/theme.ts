@@ -1,4 +1,7 @@
+import * as twindColors from 'twind/colors'
+
 export const colors = {
+  ...twindColors,
   primary: {
     light: '#A3A3FF',
     DEFAULT: '#8080FF',
@@ -9,22 +12,7 @@ export const colors = {
     DEFAULT: '#6E6B80',
     dark: '#454356'
   },
-  danger: {
-    light: '#FF6A66',
-    DEFAULT: '#FF3833',
-    dark: '#AD221F'
-  },
-  warning: {
-    light: '#F7AD45',
-    DEFAULT: '#F99406',
-    dark: '#C2750A'
-  },
-  success: {
-    light: '#5ED147',
-    DEFAULT: '#45B82E',
-    dark: '#2F6F20'
-  },
-  'accent-1': {
+  accent: {
     DEFAULT: '#FF5226'
   },
   elevation: {
@@ -44,7 +32,8 @@ export const colors = {
 }
 
 export const fontFamily = {
-  sans: ['IBM Plex Sans', 'sans-serif']
+  sans: ['IBM Plex Sans', 'sans-serif'],
+  roboto: ['Roboto', 'sans-serif']
 }
 
 const theme = {

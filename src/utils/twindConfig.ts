@@ -6,6 +6,7 @@ import theme from './theme'
 
 setup({
   preflight: withForms(),
+  mode: 'silent',
   theme: {
     extend: theme
   }
