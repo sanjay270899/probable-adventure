@@ -20,7 +20,7 @@ export const useQuestionsProgress = () => {
 export const fetchQuestions = async (options: QuestionsParams = {}) => {
   const params = toApiFilterParams({ ...options, data_type: 'question' })
   const response = await axios.get(`${API_ENDPOINTS.CONTENTS}?${params}`)
-  return response.data
+  return response.data.data
 }
 
 /**

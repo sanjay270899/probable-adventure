@@ -8,10 +8,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
-  { label: 'Challenges', to: '/challenges' },
-  { label: 'Videos', to: '/videos' },
-  { label: 'Group', to: '/group' },
-  { label: 'Leaderboard', to: '/leaderboard' }
+  { label: 'Home', to: '/' },
+  { label: 'Example', to: '/example' }
 ]
 
 const Navbar = () => {
@@ -31,9 +29,7 @@ const Navbar = () => {
   ]
 
   return (
-    <Disclosure
-      as="nav"
-      className="shadow backdrop-filter backdrop-blur relative z-10">
+    <Disclosure as="nav" className="shadow backdrop-filter backdrop-blur">
       {({ open }) => (
         <>
           <div className="py-1 px-4 sm:px-6 lg:px-8">
@@ -48,8 +44,9 @@ const Navbar = () => {
                       <NavLink
                         key={item.to}
                         to={item.to}
-                        activeClassName="bg-white bg-opacity-10 text-white"
-                        className="text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        exact={true}
+                        activeClassName="bg-white bg-opacity-10"
+                        className="hover:bg-white hover:bg-opacity-10 text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
                         {item.label}
                       </NavLink>
                     ))}
@@ -91,8 +88,8 @@ const Navbar = () => {
                                   to={item.to}
                                   onClick={item.onClick}
                                   className={cx(
-                                    active ? 'bg-white bg-opacity-10' : '',
-                                    'block px-4 py-2 text-sm text-gray-700'
+                                    active ? 'bg-black bg-opacity-10' : '',
+                                    'block px-4 py-2 text-sm text-gray-800'
                                   )}>
                                   {item.label}
                                 </NavLink>
@@ -107,7 +104,7 @@ const Navbar = () => {
                   <>
                     <NavLink
                       to="/login"
-                      className="text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
+                      className="text-white hover:bg-white hover:bg-opacity-10 px-3 py-2 rounded-md text-base font-medium transition-colors">
                       Sign in
                     </NavLink>
 
@@ -122,7 +119,7 @@ const Navbar = () => {
 
               <div className="-mr-2 flex md:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <Disclosure.Button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -140,6 +137,7 @@ const Navbar = () => {
                 <NavLink
                   key={item.to}
                   to={item.to}
+                  exact={true}
                   activeClassName="bg-gray-800 text-white"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                   {item.label}
@@ -171,6 +169,7 @@ const Navbar = () => {
                     <NavLink
                       key={item.to}
                       to={item.to}
+                      exact={true}
                       onClick={item.onClick}
                       className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                       {item.label}
