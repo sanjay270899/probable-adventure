@@ -16,13 +16,7 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/" component={Index} />
-      <Route
-        exact
-        path="/login"
-        component={Login}
-        loggedOutOnly={true}
-        redirect="/profile"
-      />
+      <Route exact path="/login" component={Login} loggedOutOnly={true} />
       <Route exact path="/profile" component={Profile} loggedInOnly={true} />
       <Route exact path="/example" component={Example} />
       <Route exact path="/u/:username" component={User} />

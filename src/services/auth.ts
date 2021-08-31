@@ -1,5 +1,6 @@
 import { LoginParams, UserUpdateParams } from 'interfaces/services'
 import { User } from 'interfaces/state'
+import cookies from 'react-cookies'
 import { useMutation, useQuery } from 'react-query'
 import { login, logout, updateUser, useAppDispatch, useLoginState } from 'state'
 import { API_ENDPOINTS } from 'utils/api'
@@ -72,6 +73,7 @@ export const useLoginMutation = () => {
 
   return useMutation(fetchLogin, {
     onSuccess: (data) => {
+      cookies.save('authorization', data.authorization, {})
       dispatch(login(data))
       queryClient.invalidateQueries('auth/user')
     }
@@ -92,6 +94,7 @@ export const useLogoutMutation = () => {
   return useMutation(fetchLogout, {
     onSuccess: () => {
       dispatch(logout())
+      cookies.remove('authorization')
       queryClient.invalidateQueries('auth/user')
     }
   })
