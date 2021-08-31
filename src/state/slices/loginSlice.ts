@@ -1,4 +1,5 @@
 import { LoginState, User } from 'interfaces/state'
+import cookies from 'react-cookies'
 import { useAppSelector } from 'state'
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
@@ -6,8 +7,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 const initialState: LoginState = {
   isLoggedIn: false,
   user: null,
-  isLoading: false,
-  authorization: null
+  isLoading: true,
+  authorization: cookies.load('authorization')
 }
 
 const loginSlice = createSlice({
@@ -28,6 +29,7 @@ const loginSlice = createSlice({
     },
     updateUser: (state, action: PayloadAction<User>) => {
       state.user = { ...state.user, ...action.payload }
+      if (!state.isLoggedIn) state.isLoggedIn = true
     },
     setLoginLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload

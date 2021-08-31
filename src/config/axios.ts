@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import { store } from 'state'
+import cookies from 'react-cookies'
 import logger from 'utils/logger'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL
@@ -14,7 +14,7 @@ const axios = Axios.create({
 axios.interceptors.request.use(
   (config) => {
     const request = config
-    const authorization = store.getState().login?.authorization
+    const authorization = cookies.load('authorization')
     if (authorization) {
       request.headers.Authorization = authorization
     }
