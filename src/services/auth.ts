@@ -4,8 +4,8 @@ import { useMutation, useQuery } from 'react-query'
 import { login, logout, updateUser, useAppDispatch, useLoginState } from 'state'
 import { API_ENDPOINTS } from 'utils/api'
 
-import axios from 'config/axios.config'
-import { queryClient } from 'config/query.config'
+import axios from 'config/axios'
+import { queryClient } from 'config/query'
 
 export const fetchUser = async () => {
   const response = await axios.get(API_ENDPOINTS.CURRENT_USER)
