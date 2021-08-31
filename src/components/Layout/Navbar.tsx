@@ -31,18 +31,16 @@ const Navbar = () => {
   ]
 
   return (
-    <Disclosure as="nav" className="bg-gray-900 shadow">
+    <Disclosure
+      as="nav"
+      className="shadow backdrop-filter backdrop-blur relative z-10">
       {({ open }) => (
         <>
           <div className="py-1 px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link to="/" className="flex-shrink-0">
-                  <img
-                    className="h-10 w-10"
-                    src="/favicon.png"
-                    alt="Devsnest logo"
-                  />
+                <Link to="/" className="flex-shrink-0 text-xl font-bold">
+                  Devsnest
                 </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -50,8 +48,8 @@ const Navbar = () => {
                       <NavLink
                         key={item.to}
                         to={item.to}
-                        activeClassName="bg-gray-800 text-white"
-                        className="text-gray-300 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
+                        activeClassName="bg-white bg-opacity-10 text-white"
+                        className="text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
                         {item.label}
                       </NavLink>
                     ))}
@@ -93,7 +91,7 @@ const Navbar = () => {
                                   to={item.to}
                                   onClick={item.onClick}
                                   className={cx(
-                                    active ? 'bg-gray-100' : '',
+                                    active ? 'bg-white bg-opacity-10' : '',
                                     'block px-4 py-2 text-sm text-gray-700'
                                   )}>
                                   {item.label}
@@ -109,7 +107,7 @@ const Navbar = () => {
                   <>
                     <NavLink
                       to="/login"
-                      className="text-gray-300 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
+                      className="text-gray-300 hover:bg-white hover:bg-opacity-10 hover:text-white px-3 py-2 rounded-md text-base font-medium transition-colors">
                       Sign in
                     </NavLink>
 
