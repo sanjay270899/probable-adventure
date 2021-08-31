@@ -1,5 +1,6 @@
-import axios from 'config/axios.config'
 import { API_ENDPOINTS } from 'utils'
+
+import axios from 'config/axios.config'
 
 export const fetchGroup = async (slug: string) => {
   const response = await axios.get(`${API_ENDPOINTS.GROUPS}/${slug}`)

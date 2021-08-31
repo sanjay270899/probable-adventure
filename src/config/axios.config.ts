@@ -1,5 +1,4 @@
 import Axios from 'axios'
-
 import { store } from 'state'
 import logger from 'utils/logger'
 
