@@ -1,4 +1,8 @@
 /* eslint-disable react/prop-types */
+import { GoogleIcon } from 'assets/icons/Social'
+import bgImage from 'assets/images/login-bg.svg'
+import Layout from 'components/Layout/Layout'
+import { LoginParams } from 'interfaces'
 import React, { useCallback } from 'react'
 import GoogleLogin, {
   GoogleLoginResponse,
@@ -6,14 +10,9 @@ import GoogleLogin, {
 } from 'react-google-login'
 import toast from 'react-hot-toast'
 import { Redirect } from 'react-router-dom'
-
-import { GoogleIcon } from '@assets/icons/Social'
-import bgImage from '@assets/images/login-bg.svg'
-import Layout from '@components/Layout/Layout'
-import { LoginParams } from '@interfaces/index'
-import { useLoginMutation } from '@services/index'
-import { useLoginState } from '@state/index'
-import { logger } from '@utils/index'
+import { useLoginMutation } from 'services'
+import { useLoginState } from 'state'
+import { logger } from 'utils'
 
 const Login = () => {
   const { user } = useLoginState()

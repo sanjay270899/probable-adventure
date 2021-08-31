@@ -1,4 +1,4 @@
-import { User } from '@interfaces/index'
+import { User } from 'interfaces'
 
 export type LoginParams = {
   type: 'google'

@@ -1,9 +1,9 @@
+import { QuestionsParams, SubmissionParams } from 'interfaces/services'
 import { useMutation, useQuery } from 'react-query'
 
-import axios from '@config/axios.config'
-import { queryClient } from '@config/query.config'
-import { QuestionsParams, SubmissionParams } from '@interfaces/services'
-import { API_ENDPOINTS, toApiFilterParams } from '@utils/index'
+import { API_ENDPOINTS, toApiFilterParams } from 'utils'
+import axios from 'config/axios.config'
+import { queryClient } from 'config/query.config'
 
 const fetchQuestionsProgress = async () => {
   const response = await axios.get(API_ENDPOINTS.REPORT)

@@ -1,7 +1,6 @@
+import { HTMLButtonProps } from 'interfaces'
 import React from 'react'
 import { style, tw } from 'twind/style'
-
-import { HTMLButtonProps } from '@interfaces/index'
 
 export const buttonStyle = style({
   base: 'inline-flex transition-colors items-center px-4 py-2 border border-transparent font-medium shadow-sm text-white focus:outline-none not-disabled:focus:ring-2 cursor-pointer disabled:cursor-default disabled:opacity-80',

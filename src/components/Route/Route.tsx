@@ -1,8 +1,7 @@
+import { RouteProps } from 'interfaces'
 import React from 'react'
 import { Redirect, Route as RRRoute } from 'react-router-dom'
-
-import { RouteProps } from '@interfaces/index'
-import { useLoginState } from '@state/index'
+import { useLoginState } from 'state'
 
 const Route = ({
   path,

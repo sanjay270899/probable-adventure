@@ -6,7 +6,7 @@ import {
   GithubIcon,
   InstagramIcon,
   TwitterIcon
-} from '@assets/icons/Social'
+} from 'assets/icons/Social'
 
 const navigation = {
   main: [

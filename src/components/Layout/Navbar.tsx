@@ -4,8 +4,8 @@ import { Link, NavLink } from 'react-router-dom'
 
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { useLogoutMutation } from '@services/auth'
-import { useLoginState } from '@state/index'
+import { useLogoutMutation } from 'services/auth'
+import { useLoginState } from 'state'
 
 const navigation = [
   { label: 'Challenges', to: '/challenges' },

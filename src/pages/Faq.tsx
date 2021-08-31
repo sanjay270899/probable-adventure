@@ -1,7 +1,7 @@
 import cx from 'classnames'
+import Layout from 'components/Layout/Layout'
 import React from 'react'
 
-import Layout from '@components/Layout/Layout'
 import { Disclosure } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/outline'
 

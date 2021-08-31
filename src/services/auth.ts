@@ -1,17 +1,11 @@
+import { LoginParams, UserUpdateParams } from 'interfaces/services'
+import { User } from 'interfaces/state'
 import { useMutation, useQuery } from 'react-query'
+import { login, logout, updateUser, useAppDispatch, useLoginState } from 'state'
+import { API_ENDPOINTS } from 'utils/api'
 
-import axios from '@config/axios.config'
-import { queryClient } from '@config/query.config'
-import { LoginParams, UserUpdateParams } from '@interfaces/services'
-import { User } from '@interfaces/state'
-import {
-  login,
-  logout,
-  updateUser,
-  useAppDispatch,
-  useLoginState
-} from '@state/index'
-import { API_ENDPOINTS } from '@utils/api'
+import axios from 'config/axios.config'
+import { queryClient } from 'config/query.config'
 
 export const fetchUser = async () => {
   const response = await axios.get(API_ENDPOINTS.CURRENT_USER)

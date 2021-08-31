@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
+import Layout from 'components/Layout/Layout'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Layout from '@components/Layout/Layout'
 import {
   AcademicCapIcon,
   BookmarkAltIcon,

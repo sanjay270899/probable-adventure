@@ -6,14 +6,14 @@ import { QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { store } from 'state'
 
-import { queryClient } from '@config/query.config'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
-import { store } from '@state/index'
+import { queryClient } from 'config/query.config'
 
 import 'twind/shim'
-import '@utils/twindConfig'
+import 'utils/twindConfig'
 
 import App from './App'
 

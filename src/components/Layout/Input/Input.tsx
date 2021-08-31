@@ -1,7 +1,6 @@
+import { HTMLInputProps } from 'interfaces/html'
 import React from 'react'
 import { style, tw } from 'twind/style'
-
-import { HTMLInputProps } from '@interfaces/html'
 
 export const inputStyle = style({
   base: `

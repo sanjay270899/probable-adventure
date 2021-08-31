@@ -1,8 +1,7 @@
+import Layout from 'components/Layout/Layout'
 import React from 'react'
-
-import Layout from '@components/Layout/Layout'
-import { useUserMutation } from '@services/index'
-import { useUser } from '@state/index'
+import { useUserMutation } from 'services'
+import { useUser } from 'state'
 
 const Profile = () => {
   const user = useUser()

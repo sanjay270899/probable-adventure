@@ -1,9 +1,8 @@
+import Layout from 'components/Layout/Layout'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-
-import Layout from '@components/Layout/Layout'
-import { useUserByUsername } from '@services/index'
-import { logger } from '@utils/index'
+import { useUserByUsername } from 'services'
+import { logger } from 'utils'
 
 const User = () => {
   const { username } = useParams() as { username: string }
