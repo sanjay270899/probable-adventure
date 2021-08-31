@@ -1,5 +1,6 @@
 import Route from 'components/Route/Route'
 import useAuth from 'hooks/useAuth'
+import Example from 'pages/Example'
 import Faq from 'pages/Faq'
 import Index from 'pages/Index'
 import Login from 'pages/Login'
@@ -23,6 +24,7 @@ const App = () => {
         redirect="/profile"
       />
       <Route exact path="/profile" component={Profile} loggedInOnly={true} />
+      <Route exact path="/example" component={Example} />
       <Route exact path="/u/:username" component={User} />
       <Route exact path="/faq" component={Faq} />
 

@@ -19,10 +19,7 @@ export const fetchUser = async () => {
  * Used to get the latest user from server
  */
 export const useUserQuery = () => {
-  return useQuery<User, null>('auth/user', fetchUser, {
-    retry: false,
-    refetchOnWindowFocus: false
-  })
+  return useQuery<User, null>('auth/user', fetchUser)
 }
 
 export const fetchUserUpdate = async (
@@ -157,10 +154,6 @@ export const useUserByUsername = (username: string) => {
   return useQuery<User, null>(
     ['user', { username }],
     () => fetchUserByUsername(username),
-    {
-      retry: false,
-      refetchOnWindowFocus: false,
-      enabled: !!username
-    }
+    { enabled: !!username }
   )
 }
