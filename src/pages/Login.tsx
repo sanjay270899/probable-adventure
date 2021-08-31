@@ -8,6 +8,8 @@ import toast from 'react-hot-toast'
 import { Redirect } from 'react-router-dom'
 
 import { GoogleIcon } from '@assets/icons/Social'
+import bgImage from '@assets/images/login-bg.svg'
+import Layout from '@components/Layout/Layout'
 import { LoginParams } from '@interfaces/index'
 import { useLoginMutation } from '@services/index'
 import { useLoginState } from '@state/index'
@@ -44,43 +46,76 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-1 min-h-screen">
-      <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-        <div className="mx-auto w-full max-w-sm lg:w-96">
-          <div>
-            <img className="h-12 w-auto" src="/favicon.png" alt="Devsnest" />
-            <h2 className="mt-6 text-3xl font-extrabold text-white">
-              Sign in to your account
+    <Layout
+      className="bg-center bg-cover"
+      style={{ backgroundImage: `url(${bgImage})` }}>
+      <div className="flex-1 flex flex-col justify-center items-center">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white text-gray-900 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <h2 className="font-semibold text-3xl text-center">
+              Sign in to Devsnest
             </h2>
-          </div>
 
-          <div className="mt-8">
-            <GoogleLogin
-              clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
-              onSuccess={onGoogleLogin}
-              onFailure={() => {}}
-              render={(props) => (
-                <button
-                  onClick={props.onClick}
-                  disabled={props.disabled || isLoading}
-                  className="w-full flex justify-center items-center py-2 px-4 border border-gray-700 rounded-md shadow-sm bg-white text-sm font-medium text-white bg-gray-700 hover:border-gray-500">
-                  <GoogleIcon className="h-6 w-6" />
-                  <span className="ml-3">Continue with Google</span>
-                </button>
-              )}
-            />
+            <div className="mt-8">
+              <GoogleLogin
+                clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
+                onSuccess={onGoogleLogin}
+                onFailure={() => {}}
+                render={(props) => (
+                  <button
+                    onClick={props.onClick}
+                    disabled={props.disabled || isLoading}
+                    className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 hover:border-gray-400 rounded-md shadow-sm bg-gray-50 hover:bg-gray-100 text-sm font-medium text-gray-800 transition-colors focus:outline-none">
+                    <GoogleIcon className="h-6 w-6" />
+                    <span className="ml-3">Continue with Google</span>
+                  </button>
+                )}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className="hidden lg:block relative w-0 flex-1">
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
-          alt=""
-        />
-      </div>
-    </div>
+    </Layout>
   )
+
+  // return (
+  //   <div className="flex flex-1 min-h-screen">
+  //     <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+  //       <div className="mx-auto w-full max-w-sm lg:w-96">
+  //         <div>
+  //           <img className="h-12 w-auto" src="/favicon.png" alt="Devsnest" />
+  //           <h2 className="mt-6 text-3xl font-extrabold text-white">
+  //             Sign in to your account
+  //           </h2>
+  //         </div>
+
+  //         <div className="mt-8">
+  //           <GoogleLogin
+  //             clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
+  //             onSuccess={onGoogleLogin}
+  //             onFailure={() => {}}
+  //             render={(props) => (
+  //               <button
+  //                 onClick={props.onClick}
+  //                 disabled={props.disabled || isLoading}
+  //                 className="w-full flex justify-center items-center py-2 px-4 border border-gray-700 rounded-md shadow-sm bg-white text-sm font-medium text-white bg-gray-700 hover:border-gray-500">
+  //                 <GoogleIcon className="h-6 w-6" />
+  //                 <span className="ml-3">Continue with Google</span>
+  //               </button>
+  //             )}
+  //           />
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <div className="hidden lg:block relative w-0 flex-1">
+  //       <img
+  //         className="absolute inset-0 h-full w-full object-cover"
+  //         src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+  //         alt=""
+  //       />
+  //     </div>
+  //   </div>
+  // )
 }
 
 export default Login

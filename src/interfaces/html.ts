@@ -14,3 +14,8 @@ export type HTMLInputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >
+
+export type HTMLDivProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>

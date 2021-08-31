@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
+import Layout from '@components/Layout/Layout'
 import { useUserByUsername } from '@services/index'
 import { logger } from '@utils/index'
 
@@ -10,7 +11,7 @@ const User = () => {
 
   logger('userByUsername', username, user)
 
-  return <></>
+  return <Layout>{JSON.stringify(user)}</Layout>
 }
 
 export default User
