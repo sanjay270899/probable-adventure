@@ -9,7 +9,8 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = [
   { label: 'Home', to: '/' },
-  { label: 'Example', to: '/example' }
+  { label: 'Example', to: '/example' },
+  { label: 'Leaderboard', to: '/leaderboard' }
 ]
 
 const Navbar = () => {
