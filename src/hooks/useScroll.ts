@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import debounce from 'utils/debounce'
 
-export default function useScroll(elementRef: unknown) {
+export default function useScroll<T extends HTMLElement>(
+  elementRef: React.RefObject<T>
+) {
   const [scrollPos, setScrollPos] = useState({ x: 0, y: 0, top: 0 })
 
   const onScroll = debounce(() => {
-    const { scrollX, scrollY, scrollTop } = elementRef.current || window
+    if (!elementRef.current) return
+    const { scrollX, scrollY, scrollTop } = elementRef.current
     if (
       scrollPos.x !== scrollX ||
       scrollPos.y !== scrollY ||
@@ -16,10 +19,11 @@ export default function useScroll(elementRef: unknown) {
   }, 10)
 
   useEffect(() => {
-    const element = elementRef.current || window
-    ;(element || window).addEventListener('scroll', onScroll)
+    const element = elementRef.current
+    if (!element) return
+    element.addEventListener('scroll', onScroll)
     return () => {
-      ;(element || window).removeEventListener('scroll', onScroll)
+      element.removeEventListener('scroll', onScroll)
     }
   }, [elementRef, onScroll])
 

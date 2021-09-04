@@ -28,6 +28,18 @@ export type DSASubmissionParams = {
   status: string
 }
 
+export type LeaderboardResponse = {
+  type: 'leaderboard'
+  count: number
+  id: number
+  user: {
+    name: string
+    rank: number
+    score: number
+  }
+  scoreboard: Array<{ name: string; rank: number; score: number }>
+}
+
 export type SubmissionParams = DSASubmissionParams | FrontendSubmissionParams
 
 export type UserUpdateParams = Partial<Omit<User, 'id'>>

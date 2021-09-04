@@ -1,13 +1,18 @@
 import Layout from 'components/Layout/Layout'
 import useScroll from 'hooks/useScroll'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useLeaderBoard } from 'services/leaderboard'
 
 const Leaderboard = () => {
   const scrollContainerRef = useRef<HTMLTableSectionElement>(null)
   const [, , scrollTop] = useScroll(scrollContainerRef)
 
-  const { data: leaderboardData, fetchNextPage, isLoading } = useLeaderBoard()
+  const {
+    data: leaderboardData,
+    fetchNextPage,
+    isLoading,
+    isFetchingNextPage
+  } = useLeaderBoard()
 
   useEffect(() => {
     const element = scrollContainerRef.current
@@ -21,7 +26,7 @@ const Leaderboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollTop])
 
-  if (isLoading) {
+  if (isLoading && !leaderboardData) {
     return (
       <Layout>
         <div className=" flex justify-center items-center align-middle w-screen ">
@@ -58,55 +63,55 @@ const Leaderboard = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody
-                  ref={scrollContainerRef}
-                  className="divide-y divide-gray-700 overflow-auto flex-1 rounded-b-xl">
-                  {leaderboardData?.pages.length > 0 && (
-                    <tr className="flex justify-between z-50 sticky top-0 py-2 px-2 bg-elevation-3 rounded-lg shadow-lg">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex justify-center items-center align-middle w-full pl-6">
-                          <div className="text-lg text-content-medium font-semibold">
-                            {leaderboardData?.pages[0]?.user?.rank}
+                {leaderboardData && (
+                  <tbody
+                    ref={scrollContainerRef}
+                    className="divide-y divide-gray-700 overflow-auto flex-1 rounded-b-xl">
+                    {leaderboardData.pages.length > 0 && (
+                      <tr className="flex justify-between z-50 sticky top-0 py-2 px-2 bg-elevation-3 rounded-lg shadow-lg">
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex justify-center items-center align-middle w-full pl-6">
+                            <div className="text-lg text-content-medium font-semibold">
+                              {leaderboardData.pages[0].user.rank}
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <div className="ml-4">
-                            <div className="flex justify-center items-center align-middle w-full">
-                              <div className="flex text-lg font-semibold">
-                                <div className="pr-2 text-content-medium">
-                                  {leaderboardData?.pages[0]?.user?.name}
-                                </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center">
+                            <div className="ml-4">
+                              <div className="flex justify-center items-center align-middle w-full">
+                                <div className="flex text-lg font-semibold">
+                                  <div className="pr-2 text-content-medium">
+                                    {leaderboardData.pages[0].user.name}
+                                  </div>
 
-                                <div className="text-sm rounded-full py-1 px-2 bg-primary-dark text-content-medium">
-                                  You
+                                  <div className="text-sm rounded-full py-1 px-2 bg-primary-dark text-content-medium">
+                                    You
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex justify-center items-center align-middle w-full pr-4">
-                          <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
-                            {leaderboardData?.pages[0]?.user?.score || '0'}
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  )}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex justify-center items-center align-middle w-full pr-4">
+                            <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
+                              {leaderboardData.pages[0].user.score || '0'}
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
 
-                  {leaderboardData?.pages.length > 0 &&
-                    leaderboardData?.pages.map((page: unknown) =>
-                      page?.scoreboard?.map((item: unknown, index: number) => (
+                    {leaderboardData.pages.map((page) =>
+                      page.scoreboard.map((item, index) => (
                         <tr
-                          key={index}
+                          key={item.name}
                           className="flex justify-between bg-elevation-6 rounded-b-xl">
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex justify-center items-center align-middle w-full pl-6">
                               <div className="text-lg text-content-medium font-semibold">
-                                {item?.rank}
+                                {item.rank}
                               </div>
                             </div>
                           </td>
@@ -115,7 +120,7 @@ const Leaderboard = () => {
                               <div className="ml-4">
                                 <div className="flex justify-center items-center align-middle w-full">
                                   <div className="text-lg font-semibold text-content-medium">
-                                    {item?.name}
+                                    {item.name}
                                   </div>
                                 </div>
                               </div>
@@ -124,7 +129,7 @@ const Leaderboard = () => {
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex justify-center items-center align-middle w-full pr-6">
                               <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
-                                {item?.score || '0'}
+                                {item.score}
                               </span>
                             </div>
                           </td>
@@ -132,12 +137,13 @@ const Leaderboard = () => {
                       ))
                     )}
 
-                  {/* {isFetchingNextPage && (
-                    <div className=" flex justify-center items-center align-middle w-screen ">
-                      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-100"></div>
-                    </div>
-                  )} */}
-                </tbody>
+                    {isFetchingNextPage && (
+                      <tr className="flex justify-center items-center align-middle">
+                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-100"></div>
+                      </tr>
+                    )}
+                  </tbody>
+                )}
               </table>
             </div>
           </div>
