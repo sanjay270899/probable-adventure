@@ -3,7 +3,7 @@ import { API_ENDPOINTS } from 'utils'
 
 import axios from 'config/axios'
 
-export const fetchleaderboard = async (currentPage: number = 1) => {
+export const fetchleaderboard = async (currentPage: number) => {
   const response = await axios.get(
     `${API_ENDPOINTS.LEADERBOARD}?page=${currentPage}&size=20`
   )
@@ -11,15 +11,17 @@ export const fetchleaderboard = async (currentPage: number = 1) => {
   return response.data.data.attributes
 }
 
-export const useLeaderBoard = (currentPage: number) => {
+export const useLeaderBoard = () => {
   return useInfiniteQuery<unknown, null>(
-    ['leaderboard', { currentPage }],
-    () => fetchleaderboard(currentPage),
+    ['leaderboard'],
+    ({ pageParam = 1 }) => fetchleaderboard(pageParam),
     {
-      getNextPageParam: (page: unknown) =>
-        page?.id > page?.count ? undefined : page?.id + 1
+      getNextPageParam: (lastPage: unknown) => {
+        if (lastPage?.id < lastPage.count) {
+          return parseInt(lastPage?.id) + 1
+        }
+        return undefined
+      }
     }
   )
 }
-
-// console.log({ page: page })

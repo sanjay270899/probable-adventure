@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import debounce from 'utils/debounce'
 
-export default function useScroll(elementRef: any) {
+export default function useScroll(elementRef: unknown) {
   const [scrollPos, setScrollPos] = useState({ x: 0, y: 0, top: 0 })
 
   const onScroll = debounce(() => {
