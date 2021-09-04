@@ -68,7 +68,7 @@ const Leaderboard = () => {
                     ref={scrollContainerRef}
                     className="divide-y divide-gray-700 overflow-auto flex-1 rounded-b-xl">
                     {leaderboardData.pages.length > 0 && (
-                      <tr className="flex justify-between z-50 sticky top-0 py-2 px-2 bg-elevation-3 rounded-lg shadow-lg">
+                      <tr className="flex justify-between z-50 sticky top-0 py-2 bg-elevation-3 rounded-lg shadow-lg">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex justify-center items-center align-middle w-full pl-6">
                             <div className="text-lg text-content-medium font-semibold">
@@ -94,7 +94,7 @@ const Leaderboard = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex justify-center items-center align-middle w-full pr-4">
+                          <div className="flex justify-center items-center align-middle w-full pr-6">
                             <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
                               {leaderboardData.pages[0].user.score || '0'}
                             </span>
@@ -104,7 +104,7 @@ const Leaderboard = () => {
                     )}
 
                     {leaderboardData.pages.map((page) =>
-                      page.scoreboard.map((item, index) => (
+                      page.scoreboard.map((item) => (
                         <tr
                           key={item.name}
                           className="flex justify-between bg-elevation-6 rounded-b-xl">
@@ -138,8 +138,13 @@ const Leaderboard = () => {
                     )}
 
                     {isFetchingNextPage && (
-                      <tr className="flex justify-center items-center align-middle">
-                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-100"></div>
+                      <tr className="flex justify-between bg-elevation-6 rounded-b-xl">
+                        <td></td>
+
+                        <td className="flex justify-center ">
+                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-100"></div>
+                        </td>
+                        <td></td>
                       </tr>
                     )}
                   </tbody>

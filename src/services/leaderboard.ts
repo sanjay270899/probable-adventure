@@ -8,7 +8,6 @@ export const fetchleaderboard = async (currentPage: number) => {
   const response = await axios.get(
     `${API_ENDPOINTS.LEADERBOARD}?page=${currentPage}&size=20`
   )
-  console.log({ rsp: response.data.data.attributes })
   return response.data.data.attributes
 }
 
