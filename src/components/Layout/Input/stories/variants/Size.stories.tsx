@@ -23,9 +23,9 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 const AllTemplate: ComponentStory<typeof Input> = (args) => {
   return (
     <ComponentSeparator>
-      <Input size="small" placeholder="Small" {...args} />
-      <Input size="regualr" placeholder="Regualr" {...args} />
-      <Input size="large" placeholder="Large" {...args} />
+      <Input textSize="small" placeholder="Small" {...args} />
+      <Input textSize="regular" placeholder="Regular" {...args} />
+      <Input textSize="large" placeholder="Large" {...args} />
     </ComponentSeparator>
   )
 }
@@ -34,18 +34,18 @@ export const All = AllTemplate.bind({})
 
 export const Small = Template.bind({})
 Small.args = {
-  placeholder: 'Samll',
-  size: 'small'
+  placeholder: 'Small',
+  textSize: 'small'
 }
 
 export const Regular = Template.bind({})
 Regular.args = {
   placeholder: 'Regular',
-  size: 'regular'
+  textSize: 'regular'
 }
 
 export const Large = Template.bind({})
 Large.args = {
   placeholder: 'Large',
-  size: 'large'
+  textSize: 'large'
 }

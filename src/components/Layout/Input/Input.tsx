@@ -21,14 +21,14 @@ export const inputStyle = style({
     error: {
       true: 'border-danger hover:border-danger focus:border-danger'
     },
-    size: {
+    textSize: {
       small: 'text-xs',
       regular: 'text-lg',
       large: 'text-xl'
     }
   },
   defaults: {
-    size: 'regular'
+    textSize: 'regular'
   }
 })
 
@@ -38,7 +38,13 @@ export type InputProps = HTMLInputProps & InputStyleProps
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props: InputProps, ref) => {
-    const { type = 'text', size = 'regular', error, className, ...rest } = props
+    const {
+      type = 'text',
+      textSize = 'regular',
+      error,
+      className,
+      ...rest
+    } = props
 
     return (
       <input
@@ -46,7 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         type={type}
         {...rest}
         style={{ boxShadow: 'none' }}
-        className={`${tw(inputStyle({ size, error }))} ${className}`}
+        className={`${tw(inputStyle({ textSize, error }))} ${className}`}
       />
     )
   }
