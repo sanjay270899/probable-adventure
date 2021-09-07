@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import Layout from 'components/Layout/Layout'
+import { Layout } from 'components'
 import React from 'react'
 
 import { Disclosure } from '@headlessui/react'

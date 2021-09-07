@@ -37,7 +37,7 @@ export type ButtonStyleProps = Parameters<typeof buttonStyle>[0]
 
 export type ButtonProps = HTMLButtonProps & ButtonStyleProps
 
-const Button = (props: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
   const {
     variant = 'primary',
     size = 'regular',

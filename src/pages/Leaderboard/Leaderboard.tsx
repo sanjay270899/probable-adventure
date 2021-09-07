@@ -1,4 +1,4 @@
-import Layout from 'components/Layout/Layout'
+import { Layout } from 'components'
 import useScroll from 'hooks/useScroll'
 import React, { useEffect, useRef } from 'react'
 import { useLeaderBoard } from 'services/leaderboard'

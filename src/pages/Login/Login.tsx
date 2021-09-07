@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { GoogleIcon } from 'assets/icons/Social'
 import bgImage from 'assets/images/login-bg.svg'
-import Layout from 'components/Layout/Layout'
+import { Layout } from 'components'
 import { LoginParams } from 'interfaces'
 import React, { useCallback } from 'react'
 import GoogleLogin, {

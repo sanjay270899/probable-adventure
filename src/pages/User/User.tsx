@@ -1,4 +1,4 @@
-import Layout from 'components/Layout/Layout'
+import { Layout } from 'components'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useUserByUsername } from 'services'

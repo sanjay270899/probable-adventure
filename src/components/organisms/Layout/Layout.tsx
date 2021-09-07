@@ -2,8 +2,8 @@ import { HTMLDivProps } from 'interfaces'
 import React from 'react'
 import { tw } from 'twind'
 
-import Footer from './Footer'
-import Navbar from './Navbar'
+import Footer from '../Footer'
+import Navbar from '../Navbar'
 
 type LayoutProps = {
   children: React.ReactNode | React.ReactNode[]

@@ -1,5 +1,4 @@
-import Button from 'components/Layout/Button'
-import Layout from 'components/Layout/Layout'
+import { Button, Layout } from 'components'
 import React from 'react'
 import toast from 'react-hot-toast'
 import { useQuestions } from 'services'

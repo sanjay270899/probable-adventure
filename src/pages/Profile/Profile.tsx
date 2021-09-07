@@ -1,4 +1,4 @@
-import Layout from 'components/Layout/Layout'
+import { Layout } from 'components'
 import React from 'react'
 import { useUserMutation } from 'services'
 import { useUser } from 'state'
