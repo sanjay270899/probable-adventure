@@ -15,22 +15,19 @@ const Leaderboard = () => {
   } = useLeaderBoard()
 
   useEffect(() => {
-    const element = scrollContainerRef.current
-    if (!element) return
-    if (
-      element.scrollHeight - element.scrollTop <=
-      element.clientHeight + 100
-    ) {
+    if (!scrollContainerRef.current) return
+    const { scrollHeight, clientHeight } = scrollContainerRef.current
+
+    if (scrollHeight - scrollTop <= clientHeight + 100) {
       fetchNextPage()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scrollTop])
+  }, [scrollTop, fetchNextPage])
 
   if (isLoading && !leaderboardData) {
     return (
       <Layout>
-        <div className=" flex justify-center items-center align-middle w-screen ">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-100"></div>
+        <div className="flex justify-center items-center align-middle w-screen">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-100" />
         </div>
       </Layout>
     )
@@ -50,6 +47,7 @@ const Leaderboard = () => {
                       className="px-6 py-3 text-left text-lg  text-gray-500 uppercase tracking-wider font-bold">
                       <div className="pl-6 ">Rank</div>
                     </th>
+
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-lg font-medium text-gray-500 uppercase tracking-wider font-bold">
@@ -63,6 +61,7 @@ const Leaderboard = () => {
                     </th>
                   </tr>
                 </thead>
+
                 {leaderboardData && (
                   <tbody
                     ref={scrollContainerRef}
@@ -76,6 +75,7 @@ const Leaderboard = () => {
                             </div>
                           </div>
                         </td>
+
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="ml-4">
@@ -93,6 +93,7 @@ const Leaderboard = () => {
                             </div>
                           </div>
                         </td>
+
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex justify-center items-center align-middle w-full pr-6">
                             <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
@@ -115,6 +116,7 @@ const Leaderboard = () => {
                               </div>
                             </div>
                           </td>
+
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
                               <div className="ml-4">
@@ -126,6 +128,7 @@ const Leaderboard = () => {
                               </div>
                             </div>
                           </td>
+
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex justify-center items-center align-middle w-full pr-6">
                               <span className="px-2 inline-flex text-lg leading-7 font-semibold rounded-full bg-green-100 text-green-600">
@@ -142,8 +145,9 @@ const Leaderboard = () => {
                         <td></td>
 
                         <td className="flex justify-center ">
-                          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gray-100"></div>
+                          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-100"></div>
                         </td>
+
                         <td></td>
                       </tr>
                     )}
