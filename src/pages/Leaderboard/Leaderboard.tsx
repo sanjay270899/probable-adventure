@@ -5,7 +5,7 @@ import { useLeaderBoard } from 'services/leaderboard'
 
 const Leaderboard = () => {
   const scrollContainerRef = useRef<HTMLTableSectionElement>(null)
-  const [, , scrollTop] = useScroll(scrollContainerRef)
+  const { top: scrollTop } = useScroll(scrollContainerRef)
 
   const {
     data: leaderboardData,
