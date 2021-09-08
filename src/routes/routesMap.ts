@@ -1,6 +1,7 @@
 import {
   ExamplePage,
   FaqPage,
+  GroupPage,
   LandingPage,
   LeaderboardPage,
   LoginPage,
@@ -33,6 +34,16 @@ export const routesMap: RouteProps[] = [
     path: '/example',
     exact: true,
     component: ExamplePage
+  },
+  {
+    path: '/g/:groupName/',
+    exact: true,
+    component: GroupPage
+  },
+  {
+    path: '/g/:groupName/:tab',
+    exact: true,
+    component: GroupPage
   },
   {
     path: '/u/:username',

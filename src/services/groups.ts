@@ -1,3 +1,9 @@
+import {
+  Group,
+  GroupApiResponse,
+  GroupMembers,
+  GroupMembersApiResponse
+} from 'interfaces'
 import { useQuery } from 'react-query'
 import { API_ENDPOINTS } from 'utils'
 
@@ -5,14 +11,18 @@ import axios from 'config/axios'
 
 export const fetchGroup = async (slug: string) => {
   const response = await axios.get(`${API_ENDPOINTS.GROUPS}/${slug}`)
-  return response.data.data.attributes
+  const data = response.data as GroupApiResponse
+  return {
+    id: data.data.id,
+    ...data.data.attributes
+  }
 }
 
 /**
  * Used to fetch details for a specific group with it's slug
  */
 export const useGroup = (slug: string) => {
-  return useQuery<unknown, null>(['group', { slug }], () => fetchGroup(slug), {
+  return useQuery<Group, null>(['group', { slug }], () => fetchGroup(slug), {
     enabled: !!slug
   })
 }
@@ -21,16 +31,17 @@ export const fetchGroupMembers = async (id: string) => {
   const response = await axios.get(
     `${API_ENDPOINTS.GROUPS}/${id}/group-members`
   )
-  return response.data.data.attributes
+  const data = response.data as GroupMembersApiResponse
+  return data.data.map((item) => item.attributes)
 }
 
 /**
  * Used to fetch members of a specific group
  */
-export const useGroupMembers = (groupId: string) => {
-  return useQuery<unknown, null>(
+export const useGroupMembers = (groupId?: string) => {
+  return useQuery<GroupMembers, null>(
     ['group-members', { groupId }],
-    () => fetchGroupMembers(groupId),
+    () => fetchGroupMembers(groupId!),
     { enabled: !!groupId }
   )
 }

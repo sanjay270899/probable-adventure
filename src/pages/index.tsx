@@ -1,4 +1,5 @@
 // ExamplePage
+
 export { default as ExamplePage } from './Example'
 export * from './Example'
 
@@ -29,3 +30,7 @@ export * from './Profile'
 // UserPage
 export { default as UserPage } from './User'
 export * from './User'
+
+// UserPage
+export { default as GroupPage } from './Group'
+export * from './Group'
