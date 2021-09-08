@@ -19,3 +19,5 @@ export type HTMLDivProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >
+
+export type OnClick<T extends HTMLElement> = React.MouseEvent<T, MouseEvent>

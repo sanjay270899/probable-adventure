@@ -1,5 +1,6 @@
 import cx from 'classnames'
-import React, { Fragment } from 'react'
+import { OnClick } from 'interfaces'
+import React, { Fragment, useCallback, useMemo } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useLogoutMutation } from 'services/auth'
 import { useLoginState } from 'state'
@@ -7,27 +8,42 @@ import { useLoginState } from 'state'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-const navigation = [
-  { label: 'Home', to: '/' },
-  { label: 'Example', to: '/example' },
-  { label: 'Leaderboard', to: '/leaderboard' }
-]
+const navigation = {
+  loggedIn: [
+    { label: 'Home', to: '/' },
+    { label: 'Example', to: '/example' }
+  ],
+  loggedOut: [
+    { label: 'Home', to: '/' },
+    { label: 'Example', to: '/example' },
+    { label: 'Leaderboard', to: '/leaderboard' }
+  ]
+}
 
 const Navbar = () => {
   const { user } = useLoginState()
   const { mutateAsync: logout } = useLogoutMutation()
 
-  const profile = [
-    { label: 'Your Profile', to: '/profile' },
-    {
-      label: 'Sign Out',
-      to: '#signout',
-      onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        e.preventDefault()
-        logout()
-      }
-    }
-  ]
+  const signOut = useCallback(
+    (e: OnClick<HTMLAnchorElement>) => {
+      e.preventDefault()
+      logout()
+    },
+    [logout]
+  )
+
+  const nav = useMemo(
+    () => (user ? navigation.loggedIn : navigation.loggedOut),
+    [user]
+  )
+
+  const profileDropdown = useMemo(
+    () => [
+      { label: 'Your Profile', to: '/profile' },
+      { label: 'Sign Out', to: '#signOut', onClick: signOut }
+    ],
+    [signOut]
+  )
 
   return (
     <Disclosure as="nav" className="shadow backdrop-filter backdrop-blur">
@@ -41,7 +57,7 @@ const Navbar = () => {
                 </Link>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    {navigation.map((item) => (
+                    {nav.map((item) => (
                       <NavLink
                         key={item.to}
                         to={item.to}
@@ -82,7 +98,7 @@ const Navbar = () => {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95">
                         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white focus:outline-none">
-                          {profile.map((item) => (
+                          {profileDropdown.map((item) => (
                             <Menu.Item key={item.to}>
                               {({ active }) => (
                                 <NavLink
@@ -134,7 +150,7 @@ const Navbar = () => {
 
           <Disclosure.Panel className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navigation.map((item) => (
+              {nav.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
@@ -165,8 +181,9 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="mt-3 px-2 space-y-1">
-                  {profile.map((item) => (
+                  {profileDropdown.map((item) => (
                     <NavLink
                       key={item.to}
                       to={item.to}
