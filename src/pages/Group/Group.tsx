@@ -14,16 +14,15 @@ const GroupPage = () => {
   const { data: group, isLoading: isGroupLoading } = useGroup(groupName)
   const { data: groupMembers } = useGroupMembers(group && group.id)
 
-  const isLoading = !group || !groupMembers
-  const notFound = !isGroupLoading && !group
-
   logger('group', group, groupMembers)
 
-  if (notFound) {
+  // group is not found if this is true
+  if (!isGroupLoading && !group) {
     return <Layout>Group not found</Layout>
   }
 
-  if (isLoading) {
+  // the data is loading if this is true
+  if (!group || !groupMembers) {
     return <Layout>Loading...</Layout>
   }
 
@@ -31,10 +30,10 @@ const GroupPage = () => {
 
   return (
     <Layout>
-      <div className="bg-blueGray-900 pb-48 w-full" />
+      <div className="bg-blueGray-900 pb-48 w-full shadow" />
 
       <div className="px-4 sm:px-6 lg:px-8 px-8 -mt-44">
-        <nav className="flex space-x-4 max-w-3xl w-full mx-auto lg:max-w-7xl shadow pt-5">
+        <nav className="flex space-x-4 max-w-3xl w-full mx-auto lg:max-w-7xl pt-5">
           {Object.values(groupTabs).map((item) => (
             <Link
               key={item.key}
