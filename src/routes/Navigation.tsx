@@ -7,8 +7,9 @@ import { routesMap } from './routesMap'
 const Navigation = () => {
   return (
     <Switch>
-      {routesMap &&
-        routesMap.map((route, index) => <Route {...route} key={index} />)}
+      {routesMap.map((route, index) => (
+        <Route key={index} {...route} />
+      ))}
     </Switch>
   )
 }

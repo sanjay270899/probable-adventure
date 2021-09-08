@@ -11,12 +11,12 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 const navigation = {
   loggedIn: [
     { label: 'Home', to: '/' },
-    { label: 'Example', to: '/example' }
+    { label: 'Example', to: '/example' },
+    { label: 'Leaderboard', to: '/leaderboard' }
   ],
   loggedOut: [
     { label: 'Home', to: '/' },
-    { label: 'Example', to: '/example' },
-    { label: 'Leaderboard', to: '/leaderboard' }
+    { label: 'Example', to: '/example' }
   ]
 }
 

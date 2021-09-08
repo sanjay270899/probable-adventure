@@ -23,7 +23,7 @@ const Layout = ({
       <div className="flex flex-col min-h-screen">
         {!hideNavbar && <Navbar />}
 
-        <div className="flex-1 flex">{children}</div>
+        <div className="flex-1 flex flex-col">{children}</div>
       </div>
 
       {!hideFooter && <Footer />}
